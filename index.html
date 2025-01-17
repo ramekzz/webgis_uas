@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>WebGIS</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <style>
+      html,
+      body,
+      #map {
+        height: 100%;
+        width: 100%;
+        margin: 0%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <script>
+      /* Initial Map */
+      var map = L.map("map").setView([-6.176655, 106.790525], 12);
+
+      /* Tile Basemap */
+      var basemap0 = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      });
+      var Esri_WorldImagery = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+        attribution: "Tiles & copy; 23611110 Rama Rasyid Universitas Islam Indonesia",
+      });
+
+      Esri_WorldImagery.addTo(map);
+
+      var customIcon1 = L.icon({
+        iconUrl: "https://cdn-icons-png.flaticon.com/128/8074/8074788.png",
+        iconSize: [40, 40],
+      });
+
+      // Markers for Schools in South Jakarta
+      var marker0 = L.marker([-6.2607, 106.7816], { icon: customIcon1 });
+      marker0.addTo(map);
+      marker0.bindPopup("<b>SDN Cipete Utara 01</b><br>Jl. Damai No.2, Cipete Utara, Kebayoran Baru, Jakarta Selatan");
+      marker0.bindTooltip("SDN Cipete Utara 01");
+
+      var marker1 = L.marker([-6.2663, 106.7985], { icon: customIcon1 });
+      marker1.addTo(map);
+      marker1.bindPopup("<b>SMPN 11 Jakarta</b><br>Jl. Wijaya IX No.1, Melawai, Kebayoran Baru, Jakarta Selatan");
+      marker1.bindTooltip("SMPN 11 Jakarta");
+
+      var marker2 = L.marker([-6.2602, 106.8039], { icon: customIcon1 });
+      marker2.addTo(map);
+      marker2.bindPopup("<b>SMAN 70 Jakarta</b><br>Jl. Bulungan Blok C No.1, Kramat Pela, Kebayoran Baru, Jakarta Selatan");
+      marker2.bindTooltip("SMAN 70 Jakarta");
+
+      var marker3 = L.marker([-6.2445, 106.7972], { icon: customIcon1 });
+      marker3.addTo(map);
+      marker3.bindPopup("<b>SDN Gandaria Utara 01</b><br>Jl. Gandaria I No.10, Gandaria Utara, Kebayoran Baru, Jakarta Selatan");
+      marker3.bindTooltip("SDN Gandaria Utara 01");
+
+      var marker4 = L.marker([-6.2433, 106.8005], { icon: customIcon1 });
+      marker4.addTo(map);
+      marker4.bindPopup("<b>SMPN 19 Jakarta</b><br>Jl. Gandaria Tengah IV No.1, Kebayoran Baru, Jakarta Selatan");
+      marker4.bindTooltip("SMPN 19 Jakarta");
+
+      var marker5 = L.marker([-6.2383, 106.8028], { icon: customIcon1 });
+      marker5.addTo(map);
+      marker5.bindPopup("<b>SMAN 6 Jakarta</b><br>Jl. Mahakam I No.2, Kramat Pela, Kebayoran Baru, Jakarta Selatan");
+      marker5.bindTooltip("SMAN 6 Jakarta");
+
+      var marker6 = L.marker([-6.2441, 106.7823], { icon: customIcon1 });
+      marker6.addTo(map);
+      marker6.bindPopup("<b>SDN Kebayoran Lama Selatan 01</b><br>Jl. Ciputat Raya No.2, Kebayoran Lama Selatan, Jakarta Selatan");
+      marker6.bindTooltip("SDN Kebayoran Lama Selatan 01");
+
+      var marker7 = L.marker([-6.2552, 106.7829], { icon: customIcon1 });
+      marker7.addTo(map);
+      marker7.bindPopup("<b>SMPN 41 Jakarta</b><br>Jl. Ciputat Raya No.5, Kebayoran Lama Selatan, Jakarta Selatan");
+      marker7.bindTooltip("SMPN 41 Jakarta");
+
+      var marker8 = L.marker([-6.2565, 106.7842], { icon: customIcon1 });
+      marker8.addTo(map);
+      marker8.bindPopup("<b>SMAN 46 Jakarta</b><br>Jl. Masjid Darussalam No.1, Kebayoran Lama Selatan, Jakarta Selatan");
+      marker8.bindTooltip("SMAN 46 Jakarta");
+
+      var marker9 = L.marker([-6.3048, 106.7895], { icon: customIcon1 });
+      marker9.addTo(map);
+      marker9.bindPopup("<b>SDN Pondok Labu 11</b><br>Jl. Margasatwa No.45, Pondok Labu, Cilandak, Jakarta Selatan");
+      marker9.bindTooltip("SDN Pondok Labu 11");
+
+      var marker10 = L.marker([-6.3031, 106.8062], { icon: customIcon1 });
+      marker10.addTo(map);
+      marker10.bindPopup("<b>SMPN 85 Jakarta</b><br>Jl. RS Fatmawati Raya No.45, Pondok Labu, Jakarta Selatan");
+      marker10.bindTooltip("SMPN 85 Jakarta");
+
+      var marker11 = L.marker([-6.2925, 106.8001], { icon: customIcon1 });
+      marker11.addTo(map);
+      marker11.bindPopup("<b>SMAN 34 Jakarta</b><br>Jl. Margasatwa No.3, Cilandak, Jakarta Selatan");
+      marker11.bindTooltip("SMAN 34 Jakarta");
+
+      var marker12 = L.marker([-6.2853, 106.8046], { icon: customIcon1 });
+      marker12.addTo(map);
+      marker12.bindPopup("<b>SDN Cipete Selatan 07</b><br>Jl. KH Ahmad Dahlan No.34, Cipete Selatan, Jakarta Selatan");
+      marker12.bindTooltip("SDN Cipete Selatan 07");
+
+      var marker13 = L.marker([-6.2774, 106.8143], { icon: customIcon1 });
+      marker13.addTo(map);
+      marker13.bindPopup("<b>SMPN 111 Jakarta</b><br>Jl. TB Simatupang No.44, Cilandak, Jakarta Selatan");
+      marker13.bindTooltip("SMPN 111 Jakarta");
+
+      var marker14 = L.marker([-6.2764, 106.8121], { icon: customIcon1 });
+      marker14.addTo(map);
+      marker14.bindPopup("<b>SMAN 82 Jakarta</b><br>Jl. TB Simatupang No.38, Cilandak, Jakarta Selatan");
+      marker14.bindTooltip("SMAN 82 Jakarta");
+
+      var marker15 = L.marker([-6.2883, 106.8068], { icon: customIcon1 });
+      marker15.addTo(map);
+      marker15.bindPopup("<b>SDN Cilandak Barat 01</b><br>Jl. H. Sa’aban No.23, Cilandak Barat, Jakarta Selatan");
+      marker15.bindTooltip("SDN Cilandak Barat 01");
+
+      var marker16 = L.marker([-6.2674, 106.8163], { icon: customIcon1 });
+      marker16.addTo(map);
+      marker16.bindPopup("<b>SMPN 43 Jakarta</b><br>Jl. TB Simatupang No.55, Cilandak Timur, Jakarta Selatan");
+      marker16.bindTooltip("SMPN 43 Jakarta");
+
+      var marker17 = L.marker([-6.2713, 106.8218], { icon: customIcon1 });
+      marker17.addTo(map);
+      marker17.bindPopup("<b>SMAN 55 Jakarta</b><br>Jl. TB Simatupang No.67, Cilandak Timur, Jakarta Selatan");
+      marker17.bindTooltip("SMAN 55 Jakarta");
+
+      var marker18 = L.marker([-6.2841, 106.8253], { icon: customIcon1 });
+      marker18.addTo(map);
+      marker18.bindPopup("<b>SDN Pasar Minggu 07</b><br>Jl. Raya Ragunan No.14, Pasar Minggu, Jakarta Selatan");
+      marker18.bindTooltip("SDN Pasar Minggu 07");
+
+      var marker19 = L.marker([-6.2633, 106.8277], { icon: customIcon1 });
+      marker19.addTo(map);
+      marker19.bindPopup("<b>SMPN 98 Jakarta</b><br>Jl. TB Simatupang No.75, Pasar Minggu, Jakarta Selatan");
+      marker19.bindTooltip("SMPN 98 Jakarta");
+
+      var marker20 = L.marker([-6.2621, 106.8319], { icon: customIcon1 });
+      marker20.addTo(map);
+      marker20.bindPopup("<b>SMAN 39 Jakarta</b><br>Jl. Raya Pasar Minggu No.36, Pasar Minggu, Jakarta Selatan");
+      marker20.bindTooltip("SMAN 39 Jakarta");
+
+      var marker21 = L.marker([-6.2999, 106.8321], { icon: customIcon1 });
+      marker21.addTo(map);
+      marker21.bindPopup("<b>SDN Kalibata 03</b><br>Jl. Kalibata No.8, Kalibata, Jakarta Selatan");
+      marker21.bindTooltip("SDN Kalibata 03");
+
+      var marker22 = L.marker([-6.2956, 106.8289], { icon: customIcon1 });
+      marker22.addTo(map);
+      marker22.bindPopup("<b>SMPN 22 Jakarta</b><br>Jl. Raya Kalibata No.5, Kalibata, Jakarta Selatan");
+      marker22.bindTooltip("SMPN 22 Jakarta");
+
+      var marker23 = L.marker([-6.2981, 106.8327], { icon: customIcon1 });
+      marker23.addTo(map);
+      marker23.bindPopup("<b>SMAN 31 Jakarta</b><br>Jl. Raya Kalibata No.20, Kalibata, Jakarta Selatan");
+      marker23.bindTooltip("SMAN 31 Jakarta");
+
+      var marker24 = L.marker([-6.2962, 106.827], { icon: customIcon1 });
+      marker24.addTo(map);
+      marker24.bindPopup("<b>SDN Pancoran 01</b><br>Jl. Pancoran No.33, Pancoran, Jakarta Selatan");
+      marker24.bindTooltip("SDN Pancoran 01");
+
+      var marker25 = L.marker([-6.2958, 106.8576], { icon: customIcon1 });
+      marker25.addTo(map);
+      marker25.bindPopup("<b>SMPN 125 Jakarta</b><br>Jl. Jagakarsa No.77, Jagakarsa, Jakarta Selatan");
+      marker25.bindTooltip("SMPN 125 Jakarta");
+
+      var marker26 = L.marker([-6.2879, 106.8545], { icon: customIcon1 });
+      marker26.addTo(map);
+      marker26.bindPopup("<b>SMAN 77 Jakarta</b><br>Jl. Jagakarsa No.80, Jagakarsa, Jakarta Selatan");
+      marker26.bindTooltip("SMAN 77 Jakarta");
+
+      var marker27 = L.marker([-6.2804, 106.8601], { icon: customIcon1 });
+      marker27.addTo(map);
+      marker27.bindPopup("<b>SDN Jagakarsa 02</b><br>Jl. Raya Jagakarsa No.45, Jagakarsa, Jakarta Selatan");
+      marker27.bindTooltip("SDN Jagakarsa 02");
+
+      var marker28 = L.marker([-6.2741, 106.8368], { icon: customIcon1 });
+      marker28.addTo(map);
+      marker28.bindPopup("<b>SMPN 19 Jakarta</b><br>Jl. Raya Tebet No.11, Tebet, Jakarta Selatan");
+      marker28.bindTooltip("SMPN 19 Jakarta");
+
+      var marker29 = L.marker([-6.2723, 106.8293], { icon: customIcon1 });
+      marker29.addTo(map);
+      marker29.bindPopup("<b>SMAN 69 Jakarta</b><br>Jl. Tebet Timur Dalam No.22, Tebet, Jakarta Selatan");
+      marker29.bindTooltip("SMAN 69 Jakarta");
+    </script>
+  </body>
+</html>
